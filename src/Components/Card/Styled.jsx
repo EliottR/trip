@@ -6,10 +6,6 @@ export const Container = styled.div`
   background-repeat: no-repeat;
   border-radius: 1rem;
 
-  &:last-child {
-    margin-right: 1.5rem;
-  }
-
   ${({ homeReservation, homePromotion, homeRentalCars }) => {
     switch (true) {
       case homeReservation:
