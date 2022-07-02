@@ -1,9 +1,9 @@
 import React from "react"
 import {
-  CityReservation,
+  CityContainer,
   Container,
   TextContainer,
-  DateReservation,
+  DatesContainer,
   IconReservation,
 } from "./Styled"
 
@@ -20,8 +20,8 @@ export const Card = (props) => {
           }}
         >
           <TextContainer>
-            <DateReservation>{dates}</DateReservation>
-            <CityReservation>{city}</CityReservation>
+            <DatesContainer>{dates}</DatesContainer>
+            <CityContainer>{city}</CityContainer>
           </TextContainer>
           <IconReservation>{icon}</IconReservation>
         </Container>
@@ -36,8 +36,8 @@ export const Card = (props) => {
           }}
         >
           <TextContainer>
-            <CityReservation>{city}</CityReservation>
-            <DateReservation>{dates}</DateReservation>
+            <CityContainer>{city}</CityContainer>
+            <DatesContainer>{dates}</DatesContainer>
           </TextContainer>
         </Container>
       )

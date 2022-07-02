@@ -4,13 +4,14 @@ export const Container = styled.div`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  border-radius: 1rem;
+
   ${({ homeReservation, homePromotion, homeRentalCars }) => {
     switch (true) {
       case homeReservation:
         return `
         min-width: calc(100% - 1.5rem);
         height: 5.5rem;
-        border-radius: 1rem;
         padding: 0.75rem 1rem;
         display: flex;
         `
@@ -19,6 +20,7 @@ export const Container = styled.div`
         return `
         min-width: 17.5rem;
         height: 22.5rem;
+        padding: 1rem;
         
         `
 
@@ -38,14 +40,52 @@ export const TextContainer = styled.div`
   color: white;
 `
 
-export const DateReservation = styled.div`
-  font-weight: 400;
-  font-size: 0.75rem;
+export const DatesContainer = styled.div`
+  ${({ homeReservation, homePromotion, homeRentalCars }) => {
+    switch (true) {
+      case homeReservation:
+        return `
+        font-weight: 400;
+        font-size: 0.75rem;
+        `
+
+      case homePromotion:
+        return `        
+        `
+
+      case homeRentalCars:
+        return `background-color : blue`
+
+      default:
+        return ""
+    }
+  }}
 `
 
-export const CityReservation = styled.div`
-  font-weight: 500;
-  font-size: 0.75rem;
+export const CityContainer = styled.div`
+  ${({ homeReservation, homePromotion, homeRentalCars }) => {
+    switch (true) {
+      case homeReservation:
+        return `
+        font-weight: 500;
+        font-size: 0.75rem;
+        background: red;
+        `
+
+      case homePromotion:
+        return `
+        font-weight: 600;
+        font-size: 1.25rem;
+        background: green; 
+        `
+
+      case homeRentalCars:
+        return `background-color : blue`
+
+      default:
+        return ""
+    }
+  }}
 `
 
 export const IconReservation = styled.div`
