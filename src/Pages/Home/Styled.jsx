@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const ContainerReservation = styled.div`
+export const ContainerCards = styled.div`
   display: flex;
   overflow: scroll;
   padding: 0 1.5rem;

@@ -1,30 +1,32 @@
-import { Card } from "../../Components/Card/Index"
 import { TitlePage } from "../../Components/Titles/Page/Index"
 import FlightTakeoffIcon from "@mui/icons-material/FlightTakeoff"
 import { TitleCard } from "../../Components/Titles/Card/Index"
-import { ContainerReservation } from "./Styled"
+import { ContainerCards } from "./Styled"
 import puntaCana from "../../Assets/punta-cana.jpg"
 import ibiza from "../../Assets/ibiza.jpg"
 import newYork from "../../Assets/new-york.jpg"
+import car1 from "../../Assets/car1.jpg"
+import car2 from "../../Assets/car2.jpg"
+import car3 from "../../Assets/car3.jpg"
+import { CardPromotion } from "../../Components/Card/Promotion/Index"
+import { CardReservation } from "../../Components/Card/Reservation/Index"
+import { CardRentalCars } from "../../Components/Card/RentalCars/Index"
 
 export const Home = () => {
   const dataReservations = [
     {
-      type: "HomeReservation",
       dates: "From July 4th to July 22nd",
       city: "Punta Cana",
       icon: <FlightTakeoffIcon />,
       img: puntaCana,
     },
     {
-      type: "HomeReservation",
       dates: "From July 4th to July 22nd",
       city: "Punta Cana",
       icon: <FlightTakeoffIcon />,
       img: puntaCana,
     },
     {
-      type: "HomeReservation",
       dates: "From July 4th to July 22nd",
       city: "Punta Cana",
       icon: <FlightTakeoffIcon />,
@@ -34,14 +36,12 @@ export const Home = () => {
 
   const dataPromotions = [
     {
-      type: "homePromotion",
       city: "Ibiza",
       dates: "September 2022",
       price: 259,
       img: ibiza,
     },
     {
-      type: "homePromotion",
       city: "New York",
       dates: "October 2022",
       price: 599,
@@ -49,11 +49,28 @@ export const Home = () => {
     },
   ]
 
+  const dataRentalCars = [
+    {
+      model: "Ford Explorer",
+      price: 400,
+      img: car1,
+    },
+    {
+      model: "Renault Clio IV",
+      price: 279,
+      img: car2,
+    },
+    {
+      model: "Peugeot 208",
+      price: 299,
+      img: car3,
+    },
+  ]
+
   const renderDataReservations = () => {
     return dataReservations.map((el, key) => {
       return (
-        <Card
-          type={el.type}
+        <CardReservation
           dates={el.dates}
           city={el.city}
           icon={el.icon}
@@ -67,10 +84,23 @@ export const Home = () => {
   const renderDataPromotions = () => {
     return dataPromotions.map((el, key) => {
       return (
-        <Card
+        <CardPromotion
           type={el.type}
           city={el.city}
           dates={el.dates}
+          price={el.price}
+          image={el.img}
+          key={key}
+        />
+      )
+    })
+  }
+
+  const renderDataRentalCars = () => {
+    return dataRentalCars.map((el, key) => {
+      return (
+        <CardRentalCars
+          model={el.model}
           price={el.price}
           image={el.img}
           key={key}
@@ -83,9 +113,11 @@ export const Home = () => {
     <div>
       <TitlePage text={"Home"} />
       <TitleCard text={"My reservations"} />
-      <ContainerReservation>{renderDataReservations()}</ContainerReservation>
+      <ContainerCards>{renderDataReservations()}</ContainerCards>
       <TitleCard text={"Promotions"} />
-      <ContainerReservation>{renderDataPromotions()}</ContainerReservation>
+      <ContainerCards>{renderDataPromotions()}</ContainerCards>
+      <TitleCard text={"Rent a car"} />
+      <ContainerCards>{renderDataRentalCars()}</ContainerCards>
     </div>
   )
 }
