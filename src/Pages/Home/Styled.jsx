@@ -6,4 +6,5 @@ export const ContainerCards = styled.div`
   padding: 0 1.5rem;
   gap: 0.5rem;
   margin-bottom: 1.5rem;
+  overflow: scroll;
 `

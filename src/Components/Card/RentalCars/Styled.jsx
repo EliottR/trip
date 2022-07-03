@@ -24,6 +24,7 @@ export const PriceContainer = styled.div`
 
 export const ModelContainer = styled.div`
   position: absolute;
+  z-index: 0;
   font-weight: 600;
   font-size: 0.75rem;
 `

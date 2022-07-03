@@ -9,4 +9,5 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 1.5rem;
+  z-index: 10;
 `
