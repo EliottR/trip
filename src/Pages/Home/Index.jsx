@@ -11,8 +11,22 @@ import car3 from "../../Assets/car3.jpg"
 import { CardPromotion } from "../../Components/Card/Promotion/Index"
 import { CardReservation } from "../../Components/Card/Reservation/Index"
 import { CardRentalCars } from "../../Components/Card/RentalCars/Index"
+import { Navbar } from "../../Components/Navbar/Index"
+import { useEffect, useRef, useState } from "react"
 
 export const Home = () => {
+  const navRef = useRef()
+  const [margin, setMargin] = useState(null)
+
+  useEffect(() => {
+    setMargin(`
+      ${
+        parseInt(getComputedStyle(navRef.current).height) +
+        parseInt(getComputedStyle(navRef.current).padding) * 2 +
+        16
+      }px`)
+  }, [])
+
   const dataReservations = [
     {
       dates: "From July 4th to July 22nd",
@@ -110,14 +124,19 @@ export const Home = () => {
   }
 
   return (
-    <div>
-      <TitlePage text={"Home"} />
-      <TitleCard text={"My reservations"} />
-      <ContainerCards>{renderDataReservations()}</ContainerCards>
-      <TitleCard text={"Promotions"} />
-      <ContainerCards>{renderDataPromotions()}</ContainerCards>
-      <TitleCard text={"Rent a car"} />
-      <ContainerCards>{renderDataRentalCars()}</ContainerCards>
-    </div>
+    <>
+      <div>
+        <TitlePage text={"Home"} />
+        <TitleCard text={"My reservations"} />
+        <ContainerCards>{renderDataReservations()}</ContainerCards>
+        <TitleCard text={"Promotions"} />
+        <ContainerCards>{renderDataPromotions()}</ContainerCards>
+        <TitleCard text={"Rent a car"} />
+        <ContainerCards margin={margin}>
+          {renderDataRentalCars()}
+        </ContainerCards>
+      </div>
+      <Navbar ref={navRef} />
+    </>
   )
 }

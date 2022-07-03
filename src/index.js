@@ -4,7 +4,6 @@ import * as serviceWorkerRegistration from "./serviceWorkerRegistration"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { Home } from "./Pages/Home/Index"
 import { GlobalStyle } from "./Syled"
-import { Navbar } from "./Components/Navbar/Index"
 import { Account } from "./Pages/Account/Index"
 import { Search } from "./Pages/Search/Index"
 import { Favorites } from "./Pages/Favorites/Index"
@@ -14,7 +13,6 @@ root.render(
   <>
     <GlobalStyle />
     <BrowserRouter>
-      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/search" element={<Search />} />

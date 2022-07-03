@@ -7,4 +7,8 @@ export const ContainerCards = styled.div`
   gap: 0.5rem;
   margin-bottom: 1.5rem;
   overflow: scroll;
+
+  &:last-child {
+    margin-bottom: ${(props) => props.margin};
+  }
 `

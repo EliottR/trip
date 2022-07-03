@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, forwardRef } from "react"
 import { NavButton } from "../Buttons/Navigation/Index"
 import { Container } from "./Styled"
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded"
@@ -7,7 +7,7 @@ import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded"
 import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded"
 import { useLocation } from "react-router-dom"
 
-export const Navbar = () => {
+export const Navbar = forwardRef((props, ref) => {
   const location = useLocation()
 
   const data = [
@@ -37,5 +37,5 @@ export const Navbar = () => {
     })
   }
 
-  return <Container>{renderData()}</Container>
-}
+  return <Container ref={ref}>{renderData()}</Container>
+})
